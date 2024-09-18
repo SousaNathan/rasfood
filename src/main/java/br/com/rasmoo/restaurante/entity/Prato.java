@@ -1,7 +1,5 @@
 package br.com.rasmoo.restaurante.entity;
 
-import sun.jvm.hotspot.ui.tree.CStringTreeNodeAdapter;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
