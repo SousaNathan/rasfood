@@ -5,6 +5,8 @@ import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class CardapioDao {
@@ -36,7 +38,7 @@ public class CardapioDao {
                     .getResultList();
         }
         catch (Exception e) {
-            return null;
+            return Collections.emptyList();
         }
     }
 
@@ -69,7 +71,7 @@ public class CardapioDao {
                     .getResultList();
         }
         catch (Exception e) {
-            return null;
+            return Collections.emptyList();
         }
     }
 

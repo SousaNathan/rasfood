@@ -3,6 +3,7 @@ package br.com.rasmoo.restaurante.dao;
 import br.com.rasmoo.restaurante.entity.Categoria;
 
 import javax.persistence.EntityManager;
+import java.util.Collections;
 import java.util.List;
 
 public class CategoriaDao {
@@ -26,11 +27,16 @@ public class CategoriaDao {
 
     public List<Categoria> consultarTodos() {
 
-        String query = "SELECT c FROM Categoria c";
+        try {
+            String query = "SELECT c FROM Categoria c";
 
-        return this.entityManager
-                .createQuery(query, Categoria.class)
-                .getResultList();
+            return this.entityManager
+                    .createQuery(query, Categoria.class)
+                    .getResultList();
+        }
+        catch (Exception e) {
+            return Collections.emptyList();
+        }
     }
 
     public void atualizar(final Categoria categoria) {
