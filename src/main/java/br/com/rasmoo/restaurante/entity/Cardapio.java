@@ -3,6 +3,8 @@ package br.com.rasmoo.restaurante.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "cardapio")
@@ -20,8 +22,12 @@ public class Cardapio {
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
+
+//    @ManyToMany(mappedBy = "cardapios")
+    @OneToMany(mappedBy = "cardapio")
+    private List<OrdensCardapio> ordensCardapios = new ArrayList<>();
 
     public Cardapio() {
 

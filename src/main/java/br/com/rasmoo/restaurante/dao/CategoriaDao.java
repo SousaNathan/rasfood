@@ -28,10 +28,10 @@ public class CategoriaDao {
     public List<Categoria> consultarTodos() {
 
         try {
-            String query = "SELECT c FROM Categoria c";
+            String jpql = "SELECT c FROM Categoria c";
 
             return this.entityManager
-                    .createQuery(query, Categoria.class)
+                    .createQuery(jpql, Categoria.class)
                     .getResultList();
         }
         catch (Exception e) {
