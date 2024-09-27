@@ -113,7 +113,7 @@ public class CargaDeDadosUtil {
 
         Endereco enderecoAndressa = new Endereco(
                 "11111111",
-                "rua um",
+                "Um",
                 "A",
                 "Belo Horizonte",
                 "Minas Gerais"
@@ -128,7 +128,7 @@ public class CargaDeDadosUtil {
 
         Endereco enderecoNathan = new Endereco(
                 "2222222",
-                "rua dois",
+                "Dois",
                 "B",
                 "Belo Horizonte",
                 "Minas Gerais"
@@ -143,7 +143,7 @@ public class CargaDeDadosUtil {
 
         Endereco enderecoJorel =  new Endereco(
                 "33333333",
-                "rua três",
+                "Três",
                 "C",
                 "Rio de Janeiro",
                 "Rio de Janeiro"
