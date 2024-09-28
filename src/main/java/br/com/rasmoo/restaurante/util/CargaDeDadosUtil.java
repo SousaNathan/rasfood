@@ -109,6 +109,7 @@ public class CargaDeDadosUtil {
 
         Cliente andressa = new Cliente(
                 "11111111111",
+                "andressa@email.com",
                 "Andressa");
 
         Endereco enderecoAndressa = new Endereco(
@@ -123,6 +124,7 @@ public class CargaDeDadosUtil {
 
         Cliente nathan = new Cliente(
                 "22222222222",
+                "nathan@email.com",
                 "Nathan"
         );
 
@@ -138,6 +140,7 @@ public class CargaDeDadosUtil {
 
         Cliente jorel = new Cliente(
                 "33333333333",
+                "jorel@email.com",
                 "jorel"
         );
 
@@ -168,9 +171,9 @@ public class CargaDeDadosUtil {
         ClienteDao clienteDao = new ClienteDao(entityManager);
         CardapioDao cardapioDao = new CardapioDao(entityManager);
 
-        Ordem ordem1 = new Ordem(clienteDao.consultar("11111111111"));
-        Ordem ordem2 = new Ordem(clienteDao.consultar("22222222222"));
-        Ordem ordem3 = new Ordem(clienteDao.consultar("33333333333"));
+        Ordem ordem1 = new Ordem(clienteDao.consultar(new ClienteId("andressa@email.com", "11111111111")));
+        Ordem ordem2 = new Ordem(clienteDao.consultar(new ClienteId("nathan@email.com", "22222222222")));
+        Ordem ordem3 = new Ordem(clienteDao.consultar(new ClienteId("jorel@email.com", "33333333333")));
 
         ordem1.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultar(1), 1));
         ordem2.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultar(2), 2));

@@ -1,6 +1,7 @@
 package br.com.rasmoo.restaurante.dao;
 
 import br.com.rasmoo.restaurante.entity.Cliente;
+import br.com.rasmoo.restaurante.entity.ClienteId;
 
 import javax.persistence.EntityManager;
 import java.util.Collections;
@@ -20,7 +21,7 @@ public class ClienteDao {
         this.entityManager.persist(cliente);
     }
 
-    public Cliente consultar(final String id) {
+    public Cliente consultar(final ClienteId id) {
 
         return this.entityManager.find(Cliente.class, id);
     }

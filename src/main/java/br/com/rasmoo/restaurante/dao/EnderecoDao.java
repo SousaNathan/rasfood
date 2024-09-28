@@ -50,7 +50,7 @@ public class EnderecoDao {
 
         try {
             String jpql = " " +
-                    "SELECT new br.com.rasmoo.restaurante.vo.ClienteVo(e.cliente.cpf, e.cliente.nome) " +
+                    "SELECT new br.com.rasmoo.restaurante.vo.ClienteVo(e.cliente.clienteId.cpf, e.cliente.nome) " +
                     "  FROM Endereco e " +
                     " WHERE 1=1 ";
 
@@ -94,21 +94,26 @@ public class EnderecoDao {
         Root<Endereco> root = criteriaQuery.from(Endereco.class);
 
         criteriaQuery.multiselect(
-                root.get("cliente").get("cpf"),
+                root.get("cliente")
+                        .get("clienteId")
+                        .get("cpf"),
                 root.get("cliente").get("nome"));
 
         Predicate predicate = builder.and();
 
         if (Objects.nonNull(estado)) {
-            predicate = builder.and(predicate, builder.equal(root.get("estado"), estado));
+            predicate = builder
+                    .and(predicate, builder.equal(builder.lower(root.get("estado")), estado));
         }
 
         if (Objects.nonNull(cidade)) {
-            predicate = builder.and(predicate, builder.equal(root.get("cidade"), cidade));
+            predicate = builder
+                    .and(predicate, builder.equal(builder.lower(root.get("cidade")), cidade));
         }
 
         if (Objects.nonNull(rua)) {
-            predicate = builder.and(predicate, builder.equal(root.get("rua"), rua));
+            predicate = builder
+                    .and(predicate, builder.equal(builder.lower(root.get("rua")), rua));
         }
 
         criteriaQuery.where(predicate);
